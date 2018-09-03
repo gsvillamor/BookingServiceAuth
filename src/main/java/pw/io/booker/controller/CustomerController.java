@@ -35,8 +35,7 @@ public class CustomerController {
 	}
 
 	@PostMapping
-	public List<Customer> saveAll(@RequestHeader("Authentication-Token") String token,
-			@RequestBody List<Customer> customers) {
+	public List<Customer> saveAll(@RequestBody List<Customer> customers) {
 		for (Customer customer : customers) {
 			if (customerRepository.findById(customer.getCustomerId()).isPresent()) {
 				throw new RuntimeException("Customers already exist");
