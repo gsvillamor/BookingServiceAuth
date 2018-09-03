@@ -1,0 +1,4 @@
+ERROR pw.io.booker.aop.AuthenticationAspect 03 Sep 2018 15:19:08. - Token not found
+ERROR pw.io.booker.aop.AuthenticationAspect 03 Sep 2018 15:20:06. - Token not found
+ERROR pw.io.booker.aop.AuthenticationAspect 03 Sep 2018 15:20:51. - Token not found
+ERROR pw.io.booker.aop.AuthenticationAspect 03 Sep 2018 15:21:57. - Token not found

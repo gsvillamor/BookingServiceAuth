@@ -38,7 +38,9 @@ public class AuthenticationController {
 
 			List<Authentication> authentications = (List<Authentication>) authenticationRepository.findAll();
 			for (Authentication auth : authentications) {
-				authenticationRepository.delete(auth);
+				if (auth.getCustomer().getUserName().equals(customer.getUserName())) {
+					authenticationRepository.delete(auth);
+				}
 			}
 
 			Authentication authentication = new Authentication();
@@ -57,11 +59,10 @@ public class AuthenticationController {
 	}
 
 	@PostMapping("/logout")
-	public void logout(@RequestHeader("Authentication-Token") String token, @RequestBody Customer customer) {
-//
-//		if (authenticationRepository.findById(customer)) {
-//
-//		}
+	public void logout(@RequestHeader("Authentication-Token") String token) {
+		if (authenticationRepository.findByToken(token) != null) {
+			authenticationRepository.delete(authenticationRepository.findByToken(token));
+			System.out.println("Successfully logged out user");
+		}
 	}
-
 }
